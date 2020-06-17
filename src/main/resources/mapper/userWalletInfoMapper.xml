@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.wallet.manage.mapper.UserWalletInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.example.wallet.manage.entity.UserWalletInfo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="COIN" property="coin" jdbcType="DECIMAL" />
+    <result column="COIN_LOCKED" property="coinLocked" jdbcType="DECIMAL" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="DELETE_TIME" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="DLSC" property="dlsc" jdbcType="INTEGER" />
+    <result column="DLSC_LOCKED" property="dlscLocked" jdbcType="INTEGER" />
+    <result column="EXPIRE_TIME" property="expireTime" jdbcType="TIMESTAMP" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ADDRESS, COIN, COIN_LOCKED, CREATE_TIME, DELETE_TIME, DLSC, DLSC_LOCKED, EXPIRE_TIME, 
+    PASSWORD, STATUS, UPDATE_TIME, USER_ID, NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_wallet_info
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_wallet_info
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.wallet.manage.entity.UserWalletInfo" >
+    insert into user_wallet_info (ID, ADDRESS, COIN, 
+      COIN_LOCKED, CREATE_TIME, DELETE_TIME, 
+      DLSC, DLSC_LOCKED, EXPIRE_TIME, 
+      PASSWORD, STATUS, UPDATE_TIME, 
+      USER_ID, NAME)
+    values (#{id,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{coin,jdbcType=DECIMAL}, 
+      #{coinLocked,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}, 
+      #{dlsc,jdbcType=INTEGER}, #{dlscLocked,jdbcType=INTEGER}, #{expireTime,jdbcType=TIMESTAMP}, 
+      #{password,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{userId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.wallet.manage.entity.UserWalletInfo" >
+    insert into user_wallet_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="coin != null" >
+        COIN,
+      </if>
+      <if test="coinLocked != null" >
+        COIN_LOCKED,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="deleteTime != null" >
+        DELETE_TIME,
+      </if>
+      <if test="dlsc != null" >
+        DLSC,
+      </if>
+      <if test="dlscLocked != null" >
+        DLSC_LOCKED,
+      </if>
+      <if test="expireTime != null" >
+        EXPIRE_TIME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="coin != null" >
+        #{coin,jdbcType=DECIMAL},
+      </if>
+      <if test="coinLocked != null" >
+        #{coinLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dlsc != null" >
+        #{dlsc,jdbcType=INTEGER},
+      </if>
+      <if test="dlscLocked != null" >
+        #{dlscLocked,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null" >
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.wallet.manage.entity.UserWalletInfo" >
+    update user_wallet_info
+    <set >
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="coin != null" >
+        COIN = #{coin,jdbcType=DECIMAL},
+      </if>
+      <if test="coinLocked != null" >
+        COIN_LOCKED = #{coinLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dlsc != null" >
+        DLSC = #{dlsc,jdbcType=INTEGER},
+      </if>
+      <if test="dlscLocked != null" >
+        DLSC_LOCKED = #{dlscLocked,jdbcType=INTEGER},
+      </if>
+      <if test="expireTime != null" >
+        EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.wallet.manage.entity.UserWalletInfo" >
+    update user_wallet_info
+    set ADDRESS = #{address,jdbcType=VARCHAR},
+      COIN = #{coin,jdbcType=DECIMAL},
+      COIN_LOCKED = #{coinLocked,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP},
+      DLSC = #{dlsc,jdbcType=INTEGER},
+      DLSC_LOCKED = #{dlscLocked,jdbcType=INTEGER},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      USER_ID = #{userId,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="list" resultMap="BaseResultMap">
+    select * from user_wallet_info where  1=1
+    <if test="address != null" >
+     and ID = #{id}
+    </if>
+    <if test="address != null" >
+      and ADDRESS = #{address,jdbcType=VARCHAR}
+    </if>
+    <if test="coin != null" >
+      and  COIN = #{coin,jdbcType=DECIMAL}
+    </if>
+    <if test="coinLocked != null" >
+      and  COIN_LOCKED = #{coinLocked,jdbcType=DECIMAL}
+    </if>
+    <if test="createTime != null" >
+      and  CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="deleteTime != null" >
+      and  DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="dlsc != null" >
+      and  DLSC = #{dlsc,jdbcType=INTEGER}
+    </if>
+    <if test="dlscLocked != null" >
+      and DLSC_LOCKED = #{dlscLocked,jdbcType=INTEGER}
+    </if>
+    <if test="expireTime != null" >
+      and  EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="password != null" >
+      and  PASSWORD = #{password,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null" >
+      and  STATUS = #{status,jdbcType=INTEGER}
+    </if>
+    <if test="updateTime != null" >
+      and  UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="userId != null" >
+      and  USER_ID = #{userId,jdbcType=VARCHAR}
+    </if>
+    <if test="name != null and name!='' " >
+      and  NAME = #{name,jdbcType=VARCHAR}
+    </if>
+    limit ${page*rows-rows},#{rows}
+  </select>
+  <select id="count" resultType="Integer">
+    select count(*) from user_wallet_info
+    where  1=1
+    <if test="address != null" >
+      and ID = #{id}
+    </if>
+    <if test="address != null" >
+      and ADDRESS = #{address,jdbcType=VARCHAR}
+    </if>
+    <if test="coin != null" >
+      and  COIN = #{coin,jdbcType=DECIMAL}
+    </if>
+    <if test="coinLocked != null" >
+      and  COIN_LOCKED = #{coinLocked,jdbcType=DECIMAL}
+    </if>
+    <if test="createTime != null" >
+      and  CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="deleteTime != null" >
+      and  DELETE_TIME = #{deleteTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="dlsc != null" >
+      and  DLSC = #{dlsc,jdbcType=INTEGER}
+    </if>
+    <if test="dlscLocked != null" >
+      and DLSC_LOCKED = #{dlscLocked,jdbcType=INTEGER}
+    </if>
+    <if test="expireTime != null" >
+      and  EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="password != null" >
+      and  PASSWORD = #{password,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null" >
+      and  STATUS = #{status,jdbcType=INTEGER}
+    </if>
+    <if test="updateTime != null" >
+      and  UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="userId != null" >
+      and  USER_ID = #{userId,jdbcType=VARCHAR}
+    </if>
+    <if test="name != null and name!='' " >
+      and  NAME = #{name,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,13 @@
+{
+  "sn": "S10001",
+  "ip": "192.168.107.18",
+  "provinceName": "湖南省",
+  "cityName": "长沙市",
+  "operatorName": "电信",
+  "clientCount": 100,
+  "cpuUsedPercent": 10,
+  "memUsedPercent": 20,
+  "status": 1,
+  "latitude": 111,
+  "longitude": 222
+}

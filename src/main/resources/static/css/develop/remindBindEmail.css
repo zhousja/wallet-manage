@@ -1,0 +1,203 @@
+#languages,#remindBindEmailContainer,#remindBindEmailContainer>#remindBtn,#remindBindEmailContainer>#remindInfo
+	{
+	position: relative
+}
+
+#timeoutMsg:before,#triangle:after {
+	content: ""
+}
+
+#remindBindEmailContainer {
+	min-height: 150px;
+	color: #9B9B9B;
+	text-align: center;
+	font-weight: blod;
+/* 	margin-bottom: 20px;
+	padding-bottom: 35% */
+}
+
+#remindBindEmailContainer>#remindBindEmailContent {
+	padding-top: 150px;
+	text-align: center;
+	position: relative;
+	font-size: 24px;
+	color: #333
+}
+
+#remindBindEmailContainer>#remindInfo {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+	font-size: 14px;
+	color: #666
+}
+
+#remindBindEmailContainer>#remindBtn {
+	font-size: 18px;
+	text-align: center;
+	height: 100%
+}
+
+#timeoutMsg:before {
+	display: table;
+	padding-top: 50px
+}
+
+.topTextField {
+	height: 43px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	line-height: 43px
+}
+
+.mainMsg>img {
+	margin-left: -30px
+}
+
+.mainMsg>span {
+	font-size: 1.3em
+}
+
+.fieldRemindBtnContainer {
+	margin: 10px 94px 0 auto;
+	font-size: 13px;
+	text-align: center
+}
+
+#helpInfo {
+	font-size: 1.3em;
+	color: #616161;
+	margin-left: -20px;
+	margin-top: 30px
+}
+
+#triangle,.applyBtn,.remindWindow,.topTextFeild>span {
+	margin-top: 20px
+}
+
+#languageSwitch:hover {
+	text-decoration: underline;
+	color: #e41f2b;
+	cursor: pointer
+}
+
+#languages {
+	border: 1px solid #CCC;
+	color: #888;
+	min-width: 4%;
+	height: auto;
+	top: -12px;
+	float: right;
+	clear: both;
+	border-radius: 2px
+}
+
+#languages>li {
+	padding: 5px;
+	cursor: pointer;
+	color: #666;
+	text-align: right
+}
+
+#languages>li:hover {
+	color: #b00;
+	background-color: #f1f1f1
+}
+
+#triangle {
+	width: 0;
+	height: 7px;
+	background: #0af;
+	display: inline-block
+}
+
+#triangle:after {
+	height: 0;
+	width: 0;
+	position: absolute;
+	border-top: 8px solid #fff;
+	border-left: 4px solid #111214;
+	border-right: 4px solid #111214
+}
+
+.remindWindow {
+	height: 100%;
+	min-height: 150px;
+	color: #9B9B9B;
+	position: relative;
+	background-color: #fff;
+	text-align: center;
+	font-weight: blod;
+	margin-bottom: 20px;
+	padding-bottom: 35%
+}
+
+#remindWindowInfo {
+	margin-top: 150px;
+	background-color: #fff;
+	z-index: 10000;
+	position: absolute;
+	height: 215px;
+	width: 400px;
+	top: 133px;
+	left: 50%;
+	margin-left: -200px;
+	display: block
+}
+
+#remindWindowInfo>#boxhideTitle {
+	font-size: 24px;
+	padding-top: 30px;
+	padding-left: 0;
+	padding-bottom: 20px;
+	color: #333
+}
+
+#remindWindowInfo>#boxhide2 {
+	background-color: #fff;
+	padding-top: 10px;
+	text-align: center;
+	position: relative;
+	font-size: 18px;
+	color: #333
+}
+
+#remindWindowInfo>#remindFooter {
+	height: 62px;
+	width: 100%;
+	font-size: 14px;
+	color: #666;
+	position: absolute;
+	bottom: 0;
+	background-color: #F4F4F4
+}
+
+.remindWindowBtn {
+	display: inline-block;
+	width: 68px;
+	height: 32px;
+	float: right;
+	margin: 15px 30px 15px auto;
+	text-indent: 0;
+	white-space: nowrap
+}
+
+.windowBtn2 {
+	display: inline-block;
+	line-height: 62px;
+	text-indent: 30px
+}
+
+.closeWindowImg {
+	float: right;
+	width: 10px;
+	height: 10px;
+	padding-top: 20px;
+	padding-right: 20px;
+	cursor: pointer
+}
+
+.boxhideTitleMsg {
+	display: inline-block;
+	padding-left: 20px
+}

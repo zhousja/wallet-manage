@@ -1,0 +1,13 @@
+{
+  "sn": "S10001",
+  "ip": "192.168.107.18",
+  "appName": "超市平台",
+  "clientName": "金好来超市",
+  "provinceName": "湖南省",
+  "cityName": "长沙市",
+  "operatorName": "电信",
+  "clientCount": 100,
+  "cpuUsedPercent": 10,
+  "memUsedPercent": 20,
+  "status": 1
+}

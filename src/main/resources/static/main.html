@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<title th:text="#{system.name}"></title>-->
+    <title>到了么钱包后台管理系统</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/all-skins.min.css">
+    <link rel="stylesheet" href="css/main.css?v=1">
+    <link rel="stylesheet" href="plugins/bootstrapvalidator/bootstrapValidator.css">
+    <!-- HTML5 Shim and Respondhostgroup.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respondhostgroup.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://OPS.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://OPS.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script th:inline="javascript">var language = 'utf-8';</script>
+    <style>
+        .version {
+            color: #b8c7ce;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            width: 230px;
+        }
+
+        .sidebar-collapse .version {
+            display: none;
+        }
+    </style>
+</head>
+<!-- ADD THE CLASS layout-boxed TO GET A BOXED LAYOUT -->
+<body class="hold-transition skin-purple sidebar-mini skin-purple sidebar-mini sidebar-collapse">
+<!-- Site wrapper -->
+<div class="wrapper" id="rrapp" v-cloak>
+    <header class="main-header">
+          <span class="logo" style="float:left;height:50px;background-color: rgb(25,105,200)" >
+                 <span class="logo-mini"><img id="logo" th:src="@{images/logo2_big.png}" height="45px" th:width="45px"></span>
+               <span class="logo-lg">
+                   <a href="#" class="ng-scope" style="color:#fff;text-decoration:none;font-weight: bold;font-size: 16px;line-height:50px"><img id="logo" th:src="@{images/logo2_big.png}" height="45px" th:width="45px">&nbsp;&nbsp;<span>到了么钱包后台管理系统</span></a>
+               </span>
+          </span>
+        <!--<a href="javascript:;" class="logo">-->
+            <!--&lt;!&ndash; mini logo for sidebar mini 50x50 pixels &ndash;&gt;-->
+            <!--<span class="logo-mini"><b>OMS</b></span>-->
+            <!--&lt;!&ndash; logo for regular state and mobile devices &ndash;&gt;-->
+            <!--<span class="logo-lg"> <img src="favicon.ico" width="45px" height="45px"/><b><span th:text="#{system.name}"></span></b></span>-->
+        <!--</a>-->
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation" style="background-color: rgb(25,105,200)" >
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <i class="fas fa-align-justify"></i>
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div style="float:left;color:#fff;padding:15px 10px;"><span th:text="#{welcome}"></span> {{user.username}}</div>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li><a href="javascript:;" @click="updatePassword"><i class="fa fa-lock"></i> &nbsp;<span th:text="#{passrod.modify}"></span></a></li>
+                    <li><a href="javascript:;" @click="logout"><i class="fa fa-sign-out"></i> &nbsp;<span th:text="#{login.out}"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =============================================== -->
+
+    <!-- Left side column. contains the sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <div class="sidebar">
+            <!-- user panel (Optional) -->
+            <div class="user-panel" style="min-height: 40px">
+                <div class="pull-left image">
+                    <img src="" class="img-circle" alt="User Image" style="display:none">
+                </div>
+                <div class="pull-left info" >
+                    <p><span th:text="#{nav.menu}"></span></p>
+                </div>
+            </div><!-- /.user-panel -->
+
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <!--<li class="header">导航菜单</li>-->
+
+                <!-- vue生成的菜单 -->
+                <menu-item :item="item" v-for="item in menuList"></menu-item>
+            </ul>
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- =============================================== -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <ol class="breadcrumb" id="nav_title" style="position:static;float:none;">
+                <li class="active"><i class="fa fa-home"
+                                      style="font-size:20px;position:relative;top:2px;left:-3px;"></i> &nbsp; <span th:text="#{homepage}"></span>
+                </li>
+                <li class="active">{{navTitle}}</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content" style="background:#fff;">
+            <iframe  frameborder="0"
+                    style="width:100%;min-height:200px;background:#fff;" :src="main"></iframe>
+        </section>
+    </div>
+
+
+    <!-- 修改密码 -->
+    <div id="passwordLayer" style="display: none;">
+        <form class="form-horizontal" id="formSelector">
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="col-sm-3 control-label"><span th:text="#{main.account}"></span></div>
+                    <div class="col-sm-9">
+                      <span class="label label-success" style="vertical-align: bottom;">{{user.username}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 control-label"><span th:text="#{main.orignpwd}"></span></div>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" v-model="password" th:placeholder="#{main.placeholder.orignpwd}" name="password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 control-label"><span th:text="#{main.pwd}"></span></div>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" v-model="newPassword" th:placeholder="#{main.placeholder.pwd}" name="newPassword"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 control-label"><span th:text="#{confirm.pwd}"></span></div>
+                    <div class="col-sm-9">
+                        <input type="password" class="form-control" v-model="confirmPwd" th:placeholder="#{confirm.placeholder.pwd}"  name="confirmPwd"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!-- ./wrapper -->
+<script src="libs/jquery.min.js"></script>
+<script src="libs/jquery.i18n.properties-min-1.0.9.js"></script>
+<script src="plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script src="libs/vue.min.js"></script>
+<script src="libs/router.js"></script>
+<script src="libs/bootstrap.min.js"></script>
+<script src="libs/app.js"></script>
+<script src="plugins/layer/layer.js"></script>
+<script src="js/common.js?v=v0.0.01"></script>
+<script src="plugins/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script src="js/index.js?v=v0.0.0.3"></script>
+</body>
+</html>

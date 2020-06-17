@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>钱包用户管理</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../plugins/jqgrid/ui.jqgrid-bootstrap.css">
+    <link rel="stylesheet" href="../../..//plugins/ztree/css/metroStyle/metroStyle.css">
+    <link rel="stylesheet" href="../../../plugins/bootstrapvalidator/bootstrapValidator.css">
+    <link rel="stylesheet" href="../../../css/main.css?v=1">
+    <script src="../../../libs/jquery.min.js"></script>
+    <script src="../../../plugins/layer/layer.js"></script>
+    <script src="../../../libs/bootstrap.min.js"></script>
+    <script src="../../../libs/vue.min.js"></script>
+    <script th:inline="javascript">
+        var language = [[${#locale.language}]];
+    </script>
+    <script th:src="@{'../../plugins/jqgrid/grid.locale-'+${#locale.language}+'.js'}"></script>
+    <script src="../../../plugins/jqgrid/jquery.jqGrid.min.js"></script>
+    <script src="../../../plugins/ztree/jquery.ztree.all.min.js"></script>
+    <script src="../../../plugins/laydate/laydate.js"></script>
+    <script type="text/javascript" src="../../../libs/jquery.i18n.properties-min-1.0.9.js"></script>
+    <script src="../../../js/common.js?v=v0.0.0.1"></script>
+    <script src="../../../plugins/bootstrapvalidator/bootstrapValidator.min.js"></script>
+
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="panel == 'list'">
+        <div class="grid-btn">
+            <div class="row">
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control" v-model="q.name" @keyup.enter="query" th:placeholder="姓名">
+                </div>
+                <a  class="btn btn-default" @click="query">查询</a>
+                <a v-if="hasPermission('demo:save')" class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;<span th:text="添加"></span></a>
+            </div>
+        </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+</div>
+
+<script src="../../js/wallet/user.js?v=3"></script>
+
+</body>
+</html>

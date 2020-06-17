@@ -1,0 +1,51 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<!-- 
+	include flowplayer JavaScript file that does  
+	Flash embedding and provides the Flowplayer API.
+-->
+<script type="text/javascript" src="../flowplayer-3.2.8.min.js"></script>
+
+<!-- some minimal styling, can be removed -->
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>HacFin FlowPlayer</title>  
+</head>  
+  
+<body>      
+    <h1>HacFin FlowPlayer</h1>  
+      
+    <!-- this A tag is where your Flowplayer will be placed. it can be anywhere -->  
+    <a    
+         href="#"  
+         style="display:block;width:720px;height:576px"    
+         id="player">   
+    </a>   
+    <!-- this will install flowplayer inside previous A- tag. -->  
+    <script>  
+    flowplayer("player", "flowplayer-3.2.8.swf",{   
+        clip: {   
+          url: 'hkfystream', //流的名称  
+          provider: 'rtmp',  
+          live: false,   
+        },    
+        plugins: {    
+           rtmp: {    
+             url: 'flowplayer.rtmp-3.2.8.swf',    
+             netConnectionUrl: 'rtmp://113.240.243.236:1935/tbapps/00b2074b0df44ee29241f0a373537b39' //流的服务器地址  
+           }   
+       }   
+    });  
+    </script>  
+
+	<!-- this will install flowplayer inside previous A- tag. -->
+	<script>
+		flowplayer("player", "../flowplayer-3.2.8.swf");
+	</script>
+  
+    <p>         
+        Sample RTMP URL (Live) is "rtmp://113.240.243.236:1935/tbapps/00b2074b0df44ee29241f0a373537b39"  
+    </p>  
+      
+</body>  
+</html>  

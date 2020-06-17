@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>到了么钱包后台管理系统</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/all-skins.min.css">
+    <link rel="stylesheet" href="css/main.css?v=1">
+    <!-- HTML5 Shim and Respondhostgroup.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respondhostgroup.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://OPS.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://OPS.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .mpage {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
+
+        .anitOut {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+<body class="hold-transition login-page" a="background-image: url('images/loginBg.png');background-size: cover;">
+<div id="banner">
+    <div class="widthLimit" >
+        <span style="float:left;height:45px;" >
+            <a href="#" class="ng-scope" style="color:#fff;text-decoration:none;font-weight: bold;font-size: 16px;line-height:45px"><img id="logo" th:src="@{favicon.ico}" height="45px" th:width="45px">&nbsp;&nbsp;<span>到了么钱包后台管理系统</span></a>
+        </span>
+        <span style="float:right;display: none;">
+            <span id="bannerQuickLink" class="ng-scope">
+                                <span id="languageSwitch" onmouseover="operLanDiago(true)">
+                                <img style="width:18px;" th:src="@{images/develop/language.png}">
+                                <span class="ng-binding"><a class="homepageLink ng-binding" id="showLanName" th:text="#{globe.language}"></a></span>
+                                </span>
+                            </span>
+
+            <ul id="languages" style="display: none;" class="ng-scope" onmouseleave="operLanDiago(false)">
+                <li class="sel-lang ng-scope ng-binding" id="zh_CN" onclick="changLang('zh_CN')">中文(简体)</li>
+                <li class="sel-lang ng-scope ng-binding" id="en_US" onclick="changLang('en_US')">English</li>
+            </ul>
+        </span>
+    </div>
+</div>
+<div style="height: 70px;"></div>
+<div class="login-box" id="rrapp" v-cloak >
+<!--    <div class="login-logo">
+        <b th:text="#{login.title}"></b>
+    </div>-->
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg" th:text="#{login.login.title}"></p>
+        <div v-if="error" class="alert alert-danger alert-dismissible">
+            <h4 style="margin-bottom: 0px;"><i class="fa fa-exclamation-triangle"></i> {{errorMsg}}</h4>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" v-model="username" @keyup.enter="login" th:placeholder="用户名">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="password" class="form-control" v-model="password" @keyup.enter="login" th:placeholder="密码">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="checkbox icheck">
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <button type="button" class="btn btn-primary btn-block btn-flat" @click="login" th:text="登录">登录</button>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.social-auth-links -->
+
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+<div id="container" class="mpage">
+    <div id="anitOut" class="anitOut"></div>
+</div>
+
+<script src="libs/jquery.min.js"></script>
+<script src="libs/jquery.cookie.js"></script>
+<script src="plugins/jqgrid/jquery.jqGrid.min.js"></script>
+<script src="libs/vue.min.js"></script>
+<script src="libs/bootstrap.min.js"></script>
+<script src="libs/app.js"></script>
+<script src="js/common.js?v=v1.0"></script>
+<script src="js/ani.js"></script>
+
+<script th:inline="javascript">
+    var data = [[${#locale.language}]];
+</script>
+<script type="text/javascript">
+var vm = new Vue({
+	el:'#rrapp',
+	data:{
+		username: '',
+		password: '',
+        captcha: '',
+		error: false,
+		errorMsg: '',
+        src: 'captcha.jpg'
+	},
+	beforeCreate: function(){
+		if(self != top){
+			top.location.href = self.location.href;
+		}
+	},
+    watch: {
+        username: {
+            handler:function(val,oldval){
+                cleanError(val);
+            }
+        },
+        password: {
+            handler:function(val,oldval){
+                cleanError(val);
+            }
+        },
+        captcha: {
+            handler:function(val,oldval){
+                cleanError(val);
+            }
+        }
+    },
+	methods: {
+        refreshCode: function(){
+            this.src = "captcha.jpg?t=" + $.now();
+        },
+        login: function () {
+            if ($.trim(vm.username) == "") {
+                vm.error = true;
+                vm.errorMsg = "账号不能为空";
+                return;
+            }
+            if ($.trim(vm.password) == "") {
+                vm.error = true;
+                vm.errorMsg = "密码不能为空";
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                url: baseURL + "sys/login",
+                data: {
+                    username: vm.username,
+                    password: vm.password
+                },
+                dataType: "json",
+                success: function(r){
+                    if(r.code == 200){//登录成功
+                      // sessionStorage.setItem("token", r.data.token);
+                      // var token = sessionStorage.getItem("token");
+                      // console.log(token);
+                      parent.location.href ='main.html';
+                    }else{
+                        vm.error = true;
+                        vm.errorMsg = r.resultMsg;
+                        vm.refreshCode();
+                    }
+                }
+            });
+        }
+	}
+});
+
+function cleanError(val) {
+    if ($.trim(val) != "") {
+        vm.error = false;
+        vm.errorMsg = "";
+    }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+.customValidateTip,.msgBtn,.submitBtn span {
+	vertical-align: middle
+}
+
+#bannerQuickLink span:hover,#footer a,#footer a:hover {
+	text-decoration: none
+}
+
+#step {
+	height: 70px;
+	width: 980px;
+	margin: 0 auto 10px;
+	font-size: 16px
+}
+
+.submitBtnWidth {
+	width: 298px
+}
+
+.submitBtn {
+	background-color: #009ee0;
+	border-radius: 3px;
+	color: #fff;
+	cursor: default
+}
+
+.submitBtn:hover {
+	cursor: pointer;
+	background-color: #87CEEB
+}
+
+.submitBtn span {
+	text-align: center;
+	font-size: 18px;
+	height: 35px;
+	margin: 0 auto;
+	display: block;
+	line-height: 35px
+}
+
+.btnDisabled {
+	background-color: #CCC !important;
+	border: 1px solid #CCC !important
+}
+
+.msgBtn {
+	height: 34px;
+	line-height: 34px;
+	border: 1px solid #c3c3c3;
+	background: #fff;
+	color: #666;
+	cursor: pointer;
+	width: 168px;
+	border-radius: 5px;
+	margin-left: 2px;
+	display: inline-block
+}
+
+.msgBtn span {
+	text-align: center;
+	display: block
+}
+
+.msgBtn:hover {
+	color: #009ae7
+}
+
+.msgBtnDisabled {
+	cursor: default;
+	background: #ececec;
+	color: #999
+}
+
+.msgBtnDisabled:hover {
+	color: #999
+}
+
+.fieldContainer {
+	margin: 10px auto;
+	float: left
+}
+
+.fieldContainer:after,.fieldContainer:before {
+	content: "";
+	display: table;
+	clear: both
+}
+
+.fieldLabel {
+	width: 200px;
+	float: left;
+	margin-right: 20px;
+	height: 36px;
+	line-height: 36px;
+	color: #666
+}
+
+.fieldLabel span {
+	float: right
+}
+
+.field {
+	width: 305px;
+	float: left;
+	margin-right: 10px
+}
+
+.passwordStrength {
+	background: #CCC;
+	border: 1px solid #fff;
+	display: block;
+	float: right;
+	font-size: .9em;
+	height: 12px;
+	line-height: 12px;
+	margin-top: 1px;
+	text-align: center;
+	width: 36px
+}
+
+#content,#innerContent {
+	background-color: #F4F4F4
+}
+
+.notRequired,.required {
+	margin-right: 5px;
+	width: 5px;
+	display: inline-block
+}
+
+.required {
+	color: red;
+	float: right
+}
+
+.notRequired {
+	color: #F5F5F5
+}
+
+.stepContentDisplayLabel {
+	display: inline-block;
+	white-space: nowrap;
+	float: left;
+	line-height: 28px;
+	color: grey
+}
+
+.stepContentDisplayValue {
+	line-height: 28px;
+	display: inline-block;
+	word-wrap: break-word;
+	float: left;
+	word-break: break-all
+}
+
+.clearBoth:after {
+	content: '';
+	display: table;
+	clear: both
+}
+
+#content:after,#content:before,#innerContent:after,.widthLimit:after {
+	content: "";
+	display: table
+}
+
+#copyright,#laws {
+	display: block
+}
+
+#logo {
+	margin-top: 0px
+}
+
+#bannerQuickLink {
+	color: #fff;
+	text-align: center;
+	height: 45px;
+	line-height: 45px;
+	float: right;
+	font-size: 14px
+}
+
+#bannerQuickLink a {
+	margin-right: 16px
+}
+
+#bannerQuickLink a:hover,#languageSwitch span:hover {
+	color: #e41f2b;
+	text-decoration: none
+}
+
+#copyright {
+	height: 40px;
+	line-height: 50px
+}
+
+#laws a,#laws a:active,#laws a:hover,#laws a:link,#laws a:visited {
+	color: #999;
+	cursor: pointer
+}
+
+.widthLimit {
+	max-width: 1180px;
+	margin: 0 auto
+}
+
+*,body,html {
+	margin: 0;
+	padding: 0
+}
+
+#footer .widthLimit {
+	max-width: 1440px
+}
+
+#banner {
+	background-color: #111214;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	width: 100%;
+	height: 45px
+}
+
+#content,#footer,.browserDiv {
+	position: relative
+}
+
+#innerContent:after {
+	clear: both;
+	float: left
+}
+
+#content {
+	margin: 0 auto -50px !important;
+	height: 100%;
+}
+
+#content:after,#content:before {
+	clear: both
+}
+
+#content:before {
+	padding-top: 36px
+}
+
+#footer {
+	background-color: #222;
+	color: #999;
+	width: 100%;
+	clear: both;
+	font-size: 12px;
+	text-align: left
+}
+
+#footer a {
+	color: #999
+}
+
+#footer a:hover {
+	color: #FFF
+}
+
+body,html {
+	height: 100%;
+	font-size: 14px;
+	color: #333;
+}
+
+#reactivateAccount {
+	color: #797979;
+	font-size: 28px;
+	font-style: normal;
+	text-align: left;
+	line-height: normal;
+	font-weight: 400
+}
+
+.tip_no_border,.tip_no_border:after,.tip_no_border:before {
+	border-right: none !important
+}
+
+.tip_no_border {
+	border: none !important;
+	background-color: #FFF !important;
+	box-shadow: none !important
+}
+
+.browserDiv {
+	width: 72%;
+	height: 115px;
+	margin: 0 50px 0 300px
+}
+
+.browserImage {
+	width: 80px;
+	height: 80px;
+	margin-bottom: 50px
+}
+
+.browserNameDesc {
+	display: inline-block;
+	width: 70%;
+	margin-left: 20px;
+	font-size: 20px;
+	color: #333
+}
+
+.browserEnableDesc {
+	display: inline-block;
+	margin-top: 5px;
+	font-size: 14px;
+	color: #666
+}
+
+.placeholder {
+	color: #aaa !important;
+	font-family: "Microsoft Yahei" !important
+}
+
+.homepageLink {
+	color: #fff
+}
+
+.verticalLink {
+	font-size: 16px;
+	margin: 0 5px;
+	color: #e4e4e4 !important
+}
+
+button {
+	font-family: inherit
+}
+
+.right-space {
+	margin-right: 10px
+}

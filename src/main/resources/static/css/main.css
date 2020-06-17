@@ -1,0 +1,151 @@
+html { overflow-x:hidden; }
+.content-header {
+	position: relative;
+	padding: 0 0 3px 8px
+}
+
+.content-header>.breadcrumb {
+    position: relative;
+    top: 0;
+    right: 0;
+    float: none;
+    margin-top: 0px;
+    padding-left: 10px;
+    background: #ecf0f5;
+}
+
+.main-footer {
+    padding: 7px;
+    color: #444;
+    border-top: 1px solid #eee;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.button-group{
+	margin-bottom:12px;
+}
+.grid-btn .btn{
+	margin-right:0px;
+}
+.pointer{cursor: pointer;}
+
+.ml-10 { margin-left:0 !important; }
+@media (min-width: 768px) {
+	.ml-10 { margin-left:10px !important; }
+	.col-sm-10 {width: 70%;padding-left: 0px;}
+	.col-sm-2 {width: 15%;}
+}
+tbody > tr > th {font-weight: normal; }
+.panel .table { margin:0 0; }
+.panel .pagination { margin:0; }
+.panel-default>.panel-heading {background-color: #f5f5f5;}
+.row{
+	border-top: 1px solid #ddd;
+	margin:0;
+	padding:20px 2px 0px 2px;
+}
+.col-xs-6{padding-left: 0px;padding-right: 0px;}
+.form-horizontal .form-group {margin-left:0px;margin-right:0px;}
+.form-horizontal{
+	width:550px;padding-top:20px;
+}
+.reqMark{
+	color:red;
+	font-size: 25px;
+}
+.skin-green .main-header .navbar{
+	background-color:#0b0a0a;
+}
+.skin-green .main-header .logo{
+	background-color:#0b0a0a;
+	border-bottom:0 solid transparent;
+}
+
+.skin-green .sidebar a{
+	color:#525454;
+}
+.sidebar-toggle .logo > a:hover{
+	color:#0b0a0a;
+	background:#f7f9f9;
+	border-left-color:#f7f9f9;
+}
+.skin-green .sidebar-menu > li:hover > a, .skin-green .sidebar-menu > li.active > a{
+	color:#0b0a0a;
+	background:#f7f9f9;
+	border-left-color:#f7f9f9;
+}
+.skin-green .sidebar-menu > li > .treeview-menu{
+	background:#f7f9f9;
+}
+.skin-green .treeview-menu > li.active > a, .skin-green .treeview-menu > li > a:hover{
+	color:#0b0a0a;
+	background:#fff;
+}
+.skin-green .treeview-menu > li > a{
+	background:#fff;
+	color:#525454;
+}
+.skin-green .wrapper, .skin-green .main-sidebar, .skin-green .left-side{
+	background-color:#f7f9f9;
+}
+.skin-green .user-panel > .info, .skin-green .user-panel > .info > a{
+	color:#0a0b0b;
+}
+.skin-green .main-header .logo:hover{
+	background-color:#0b0a0a;
+}
+.skin-green .main-header .navbar .sidebar-toggle:hover{
+	background-color:#E1E5E5;
+}
+th{
+	background:#E1E5E5;
+}
+td{
+	height: 19px;
+}
+.someClass > td{
+	background-color: #f7f9f9;
+	background-image: none;
+}
+
+.btn-primary{
+	color:#373737;
+	background-color:#fff;
+	border-color:#373737;
+}
+
+#loginAdv,#loginForm{
+	margin-left:5%;margin-top:7%;position:absolute;float:left
+}
+
+#languages{background-color:#222;clear:both}
+#languages{border:solid #222;border-width:10px 0;color:#888;min-width:120px;height:auto;float:right;font-size:14px;border-radius:2px;margin-right:0}
+#languages>li{cursor:pointer;list-style-type:none;color:#FFF;text-align:left;margin-left:2px;}
+#languages>li:hover{color:#b00;border-right:solid 3px #b00}
+#triangle{width:0;height:9px;background:#0af;display:inline-block}
+.widthLimit{max-width:1360px;margin:0 auto;padding:0 40px}
+#banner{background-color:#111214;position:fixed;z-index:99999;top:0;width:100%;height:45px}
+#bannerQuickLink{color:#fff;text-align:center;height:45px;line-height:45px;float:right;font-size:14px}
+#bannerQuickLink a{margin-right:16px}
+#bannerQuickLink a:hover{color:#e41f2b;text-decoration:none}
+#bannerQuickLink span:hover{text-decoration:none}
+.homepageLink{color:#fff}
+#languageSwitch:hover{cursor:pointer}.index-regist{position:relative}
+.link{font-size:12px;cursor: pointer;}
+
+.sidebar-menu .fab,
+.sidebar-menu .fas,
+.sidebar-menu .far{
+	width: 20px;
+}
+
+.main-header .sidebar-toggle:before {
+	content:""
+}
+
+.form-search-input {
+	padding-left: 0px!important;
+}
